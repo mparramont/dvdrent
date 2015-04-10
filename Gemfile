@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.1'
 
 # Standard Rails gems
 gem 'rails', '4.2.0'
@@ -40,6 +40,10 @@ group :development, :test do
 
   # Spring: https://github.com/rails/spring
   gem 'spring', '1.3.3'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 
