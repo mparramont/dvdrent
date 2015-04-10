@@ -11,7 +11,6 @@ class MovieCrawler
 		links.each do |link|
 			puts i
 			i = i + 1
-			begin
 			movie_page = Nokogiri::HTML(open(base_url + link['href']))
 			title = movie_page.css(".movie_title span").first.text.strip.delete("(2014)")
 			description = movie_page.css("#movieSynopsis").text
@@ -20,9 +19,6 @@ class MovieCrawler
 			image_url = movie_page.css(".posterImage").first['src']
 
 			Movie.create({title: title, description: description, cover: open(image_url) })
-			rescue
-				puts "Something didnt worked"
-			end
 		end
 
 	end
