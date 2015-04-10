@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1><%= @movie.title %></h1>
+	</div> 
+</div>
+
+<div class="row">
+	<div class="col-md-3">
+		<%= image_tag @movie.cover.url(:medium), width: '100%', height: 'auto', style: "border-radius:40px" %>
+	</div>
+	<div class="col-md-4">
+		<h4><strong>Description:</strong></h4>
+		<p>
+		<%= @movie.description %></p>
+	</div>
+	<div class="col-md-5">
+		<% if @customer.id == nil %>
+			<h4><strong>Rent Now!</strong></h4>
+			<%= render "customers/form" %>
+		<% else %>
+			<h4 class="text-success"><%= "Hi, #{@customer.first_name}!" %></h4>
+			<p> please pick up your movie at the following location:</p>
+
+			<strong>1132 Fort Street mall</strong>
+			<br>
+			<strong>Honolulu, Hi</strong>
+			<br>
+			<br>
+			<p>If you have additional questions, give us a call:</p>
+
+			<strong>tel 808-797-6070</strong>
+			<br>
+			<br>
+				<%= link_to 'Take me back to Movies List', movies_path, class: "btn btn-success" %>
+		<% end %>
+	</div>
+</div>
+
+<% if @customer.id == nil %>
+<div class="row">
+	<div class="col-md-12">
+		<%= link_to 'Go Back', movies_path, class: "btn btn-default" %>
+	</div>
+</div>
+
+<% end %>

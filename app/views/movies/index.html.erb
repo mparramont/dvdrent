@@ -1,0 +1,28 @@
+
+<% @movies.each_slice(4) do |slice| %>
+  <div class="row">
+    <% slice.each do |movie| %>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= movie.title %>
+          </div>
+          <div class="panel-body" style="padding:0px">
+            <%= image_tag movie.cover.url(:thumb), width: '100%', height: 'auto' %>
+           <div class="panel-footer text-center">
+              <%= link_to "Rent!", movie_path(movie) %>
+           </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+<div class="row">
+  <div class="text-center">
+    <%= will_paginate @movies, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>

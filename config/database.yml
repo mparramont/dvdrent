@@ -5,8 +5,8 @@ development:
   adapter: postgresql
   encoding: utf8
   database: dvd_development
-  username: emmanuel
-  host: localhost
+  username:
+  host:
   pool: 5
   port: 5432
   

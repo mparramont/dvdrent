@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+
 
 # Standard Rails gems
 gem 'rails', '4.2.0'
@@ -20,11 +20,15 @@ gem 'kaminari', '0.16.3'
 # Friendly_id: https://github.com/norman/friendly_id
 gem 'friendly_id', '5.1.0'
 
-# Font-awesome: https://github.com/FortAwesome/font-awesome-sass
-gem 'font-awesome-sass', '4.3.1'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
 
-# Bootstrap 3: https://github.com/twbs/bootstrap-sass
-gem 'bootstrap-sass', '3.3.3'
+gem 'will_paginate-bootstrap'
+gem 'will_paginate'
+
+gem 'nokogiri'
+
+gem "paperclip"
 
 group :development, :test do
   gem 'byebug', '3.5.1'

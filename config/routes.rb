@@ -1,13 +1,17 @@
 Dvd::Application.routes.draw do
-  root "pages#home"
-  get "home", to: "pages#home", as: "home"
-  get "inside", to: "pages#inside", as: "inside"
   
+
+  resources :customers
+  resources :movies
   
+  root "movies#index"
+
   devise_for :users
 
   namespace :admin do
-    root "base#index"
+    root "base#customers"
+    get "movies", to: "base#movies"
+    get "customers", to: "base#customers"
     resources :users
     
   end

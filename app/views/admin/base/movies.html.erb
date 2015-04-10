@@ -1,0 +1,39 @@
+
+<div class="row">
+  <div class="col-md-6">
+  <h3>Movies</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Curated at</th>
+        <th>Title</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.created_at %></td>
+          <td><%= movie.title %></td>
+          <td><%= link_to "Edit", admin_movies_path(movie: movie.id) %></td>
+          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= will_paginate @movies, renderer: BootstrapPagination::Rails %>
+  </div>
+  </div>
+  <div class="col-md-6">
+    <% if @movie.id == nil %>
+      <h3>New Movie</h3>
+    <% else %>
+      <h3><%= "Edit #{@movie.title}" %></h3>
+    <% end %>
+    <%= render "movies/form" %>
+  </div>
+</div>
+
