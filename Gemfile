@@ -29,7 +29,7 @@ gem 'will_paginate'
 gem 'nokogiri'
 
 gem "paperclip"
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug', '3.5.1'
